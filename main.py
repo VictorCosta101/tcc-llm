@@ -8,7 +8,12 @@ import time
 pdf_path = "/home/victor/Documentos/tcc/peal0002.pdf"
 
 # Carregar modelo de linguagem Spacy em português
-nlp = spacy.load("pt_core_news_sm")
+try:
+    nlp = spacy.load("pt_core_news_sm")
+except OSError:
+    print("Modelo não encontrado. Baixando...")
+    spacy.cli.download("pt_core_news_sm")
+    nlp = spacy.load("pt_core_news_sm")
 
 
 
