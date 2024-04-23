@@ -1,0 +1,116 @@
+Incidado o processo de leitura do pdf
+Tempo de execução ollama: 1.3261358737945557 segundos
+Incidado o procesamento do pdf pela llm
+prompt: 
+        Answer in portuguese.
+        You are a text processing agent working with lease agreement document.
+        Extract specified values from the source tokenized text.
+        Return answer as JSON object with following fields:
+        - "Categoria_da_sesmaria" <string>
+        - "Sesmeiros" <string>
+        - "Capitania" <string>
+        - "Estado_atual" <string>
+        - "Historico_da_terra" <string>
+        - "Data_de_peticao" <string>
+        - "Localidade" <string>
+        - "Marcos_geograficos" <string>
+        - "Ribeira" <string>
+        - "Confrotantes" <string>
+        - "Area" <float>
+        - "Tipo_de_area" <string>
+        - "Largura" <string>
+        - "Comprimento" <string>
+
+        Instruction:
+        Do not infer any data based on previous training, strictly use only source text given below as input.
+        Answer All fields, if you don't find the information on text return filed with 'Null'
+        Classify "Categoria_da_sesmaria" by selecting one of the following options ["petição individual"], ["petição coletiva"]
+        Classify "Capitania" by selecting one of the following options ["Alagoas"], ["Bahia"], ["Ceará"], ["Colonia do Sacramento"], ["Espírito Santo"], ["Goias"], ["Itamaracá"], ["Maranhão"], ["Mato Grosso do Sul"], ["Minas Gerais"], ["NA"], ["Pará"], ["Paraíba"], ["Pernambuco"], ["Pernambuco/Alagoas"], ["Pernambuco/Piauí"], ["Piauí"], ["Rio de Janeiro"], ["Rio Grande do Norte"], ["Rio Grande do Sul"], ["Rio Negro"], ["Santa Catarina"], ["São Paulo"], ["São Paulo/Rio de Janeiro"], ["Sergipe"]
+        Classify "Estado_atual" by selecting one of the following options ["Alagoas"], ["Bahia"], ["Ceará"], ["Colonia do Sacramento"], ["Espírito Santo"], ["Goias"], ["Itamaracá"], ["Maranhão"], ["Mato Grosso do Sul"], ["Minas Gerais"], ["NA"], ["Pará"], ["Paraíba"], ["Pernambuco"], ["Pernambuco/Alagoas"], ["Pernambuco/Piauí"], ["Piauí"], ["Rio de Janeiro"], ["Rio Grande do Norte"], ["Rio Grande do Sul"], ["Rio Negro"], ["Santa Catarina"], ["São Paulo"], ["São Paulo/Rio de Janeiro"] , ["Sergipe"]
+        Classify "Historico_da_terra" by selecting one of the following options ["Comprada"], ["Devoluta nunca povoada"], ["Devoluta por abandono"], ["Herdada"], ["NA"], ["Primordial"]
+        Classify "Tipo_de_area" by selecting one of the following options ["Léguas"], ["Braças"]. ["NA"]
+        ========
+
+        source text: "PE-AL0013
+Carta dedoaçãoesesmaria deDomingos Rodrigues daSilva -11/02/1723
+CARTADE SESMARIAQUE SEPASSOUADOMINGOSRODRIGUES DASILVA,
+CAPITÃO DOTERÇO PAGO DACAMPANHADOSPALMARES.
+Dom Manoel Rolim de Moura, do Conselho de Sua Majestade - Governador e capitão general de
+Pernambuco e mais capitanias anexas e etc. Faço saber aos que esta carta de doação de sesmarias
+virem, que Domingos Rodrigues da Silva, capitão do terço pago da Campanha dos Palmares, e ao
+presente cabo atual do Arraial de Cucaú, me apresentou a petição seguinte: Diz Domingos
+Rodrigues da Silva, capitão de uma das Companhias de Infantaria paga da Campanha dos Palmares,
+que pelos documentos juntos, todos fundados nas ordens de Sua Majestade, que Deus guarde,
+consta haver o dito senhor reduzido o dito terço a seis Companhias, ordenando que em sítios
+proporcionados se assentassem trêsArraiais, a saber: uma no distrito daVila dasAlagoas, com duas
+companhias e um dos capitães por cabo delas, que de próximo é André Furtado de Mendonça; no
+outro, no distrito da Vila do Porto Calvo, com outras duas Companhias e um dos capitães por cabo,
+que hoje é Miguel de Godoi de Vasconcelos; outro no distrito da Vila de Serinhaem, em o lugar
+chamado o Cucaú, com outras duas Companhias do qual o suplicante foi nomeado por cabo, em
+cujo sítio e Arraial de posse em observância das ditas reais ordens há onze para doze anos. E por
+quanto Sua Majestade foi servido mandar, pela que logo se segue a esta petição vinda ao
+governador e capitão general Caetano de Melo de Castro, que as terras conquistadas dos Palmares
+se repartisse entre todos os oficiais maiores e menores, e soldados do mesmo terço, dando-se a cada
+um a quantidade das léguas conforme ao seu posto, como na própria ordem se declara, fazendo
+mercê aos capitães de três léguas de terra a cada um em quadro, sendo que para todos hajão terras
+das que foram conquistadas; eestando todos os mais capitães acomodados, se acha o suplicante sem
+a sua data, sem embargo de havê-la requerido já na capacidade das terras do sítio do Cucaú, onde
+tem assentado o seuArraial,emostrado com ajustificaçãofeita perante oprovedor da Fazenda Real,
+também apença a estes documentos, em como as terras que pretende o suplicante, são dentro das
+que se conquistaram na guerra dos Palmares, como Sua Majestade adverte na mesma ordem, que
+VossaSenhoria seráservido mandá-la inserir nacarta de doação desesmaria que osuplicante espera,
+se lhe passe seguindo-se também essa a da isenção do foro das ditas terras de que o dito senhor lhe
+fez mercê. Pede a Vossa Senhoria seja servido, atendendo ao que o suplicante alega nesta petição,
+tudo aprovado com as ordens de Sua Majestade mandar-lhe passar sua carta de doação de sesmaria
+de terras confrontadas pelo rio de Serinhaem acima, pegando das cabeceiras do alferes Antônio de
+Freitas, já defunto, três léguas de terras em quadro a rumo direito pelo rio acima, fazendo pião no
+mesmo rio, por estarem devolutas e o suplicante situado nelas com o seu Arraial na forma dasordens d'ElRei, Nosso Senhor, e para a parte do norte, buscando o rio de Camaragibe, pelas
+cabeceiras das datas, buscando até encher as ditas três legôas de terra em quadro e para a parte do
+sul demandando o rio das Ilhêtas, pelas cabeceiras das datas, até sempre fazerem as ultimas três
+léguas em quadro para o sertão; terras conquistadas aos negros rebeldes dos Palmares, tendo Vossa
+Senhoria em consideraçãoa que os moradores daVilade Serinhaem fazem muitaaceitaçãodeque o
+suplicante assim naquele distrito, como se vê da certidão anexa dos oficiais da Câmara dela. – E
+receberá mercê - Segue-se a primeira carta - Caetano de Melo de Castro - Amaro. Eu, EIRei, vos
+envio muito saudar. Havendo visto o que aqui se me representou por parte dos paulistas sobre a
+forma que se deu as sesmarias, cuidando que os ministros deputados a elas as hão de ir distribuir ao
+sertão; o que primeiro se hão de decidir, ainda que sumariamente, os prejuízos de terceiros que lhe
+sejam entregues as terras; e atendendo as razões que se me ofereceram e propuseram a favor do
+mestre de campo Domingos Jorge Velho, que na assistência da Campanha em movimento das
+guerras dos negros dos Palmares, se tem assinalado e merecido tanto. Me pareceu mandar-vos que
+no sítio que ele nomear, se lhe deem seis léguas de terra; e observado o que informa o dito provedor
+em seu despacho, que não contém mais que duas condições no que respeita a concessão desta carta
+de sesmaria, sendo a primeira a precedência de uma justificação pela qual contém, que as terras que
+são dadas ao suplicante são dentro dos sítios dos Palmares, que se conquistarão e ficarão de
+conquistar para os sertões que o suplicante mostra haver justificado a seu favor, em observância da
+ordem real aqui incorporada aque odito provedor se refere, ea segunda quenãosucedam nas terras
+religiões por nenhum título, e acontecendo que sucedam, possuindo-as, seja com o encargo de
+pagarem dízimo como se fossem possuídas por seculares, e faltando-se a isto se haverão por
+devolutas, e darão a quem as denunciar. E havendo, outrossim, respeito ao que Sua Majestade me
+concede no capítulo 15 do regimento deste Governo. Hei por bem fazer-lhe mercê dar ao suplicante
+acima nomeado, como pela presente dou de sesmaria em nome de Sua Majestade, que Deus guarde,
+nos mesmos lugares,partes etestadas que confrontam em suapetição três léguas deterra em quadro
+no próprio sítio em que as pede e na mesma forma que parece ao provedor da Fazenda Real e ao
+doutor procurador da Coroa e Fazenda, livres e isentas da pensão do foro de cada légua, exceto o
+dízimo a Deus, como o dito senhor manda pela segunda ordem expressa inclusa também nesta
+mesma carta de data de sesmaria: o qual povoará a dita terra no tempo de cinco anos, aliás se dará
+por devoluta e a possuirá e gozará o suplicante e seus herdeiros, não prejudicando a terceiro, com
+todas as suas matas, ágoas, campos, testadas, logradouros e mais úteis que nela se acharem; e serão
+obrigados a dar por elas caminhos livres ao Conselho para fontes, pontes e pedreiras, e a requerer a
+confirmação desta data por EIRei, Nosso Senhor, no tempo de dois anos. Pelo que ordeno aos
+ministros da Fazenda e Justiça desta capitania, a quem o conhecimento desta carta pertencer, lhe
+deem a posse real, efetiva e atual, na forma costumada e debaixo das cláusulas referidas naordenação título de sesmarias; que por firmeza de tudo lhe mandei passar a presente por mim
+assinada e selada com o sinete de minhas armas, a qual se registratará nos livros da Secretaria deste
+Governo e nos da Fazenda e foral real e nos mais aque tocar. Dada nesta cidade de Olinda, aos 11
+de fevereiro de 1723.Osecretario Manoel daSilvaRosaoescreve =DomManoel Rolim deMoura.
+-Fim da carta -
+Referência:
+DocumentaçãoHistórica Pernambucana, Livro I, fls. 265- 271."
+        ========
+        
+Tempo de execução ollama: 344.36477494239807 segundos
+{
+"type": "pdf",
+"file": "https://storage.googleapis.com/media.historical.pernambuco/images/carta-de-sesmaria-domingos-jorge-velho.pdf",
+"title": "Cartão de Sesmaria para Domingos Jorge Velho",
+"description": "Cartão de sesmaria emitido em 1723 pelo governador Manoel da Silva Rosa para o senhor Domingos Jorge Velho, concedendo-lhe terras no sertão do estado da Bahia. A carta estabelece as condições da concessão da sesmaria, incluindo a extensão das terras, o prazo de posse e a obrigação de dar caminhos livres ao Conselho para fontes, pontes e pedreiras."
+}

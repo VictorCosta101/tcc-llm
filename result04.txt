@@ -1,0 +1,24 @@
+Incidado o processo de leitura do pdf
+O tamanho do documento é: 3356
+Tempo de execução ollama: 0.2736339569091797 segundos
+Incidado o processo de geração de tokens do pdf
+Tempo de execução ollama: 0.170579195022583 segundos
+Incidado o procesamento do pdf pela llm
+prompt: 
+Tempo de execução ollama: 444.4411053657532 segundos
+{
+"Categoria da sesmaria": "petição individual",
+"Sesmeiros": "Christovão Mendonça",
+"Capitania": "Alagoas",
+"Estado atual": "Alagoas",
+"Historico da terra": "Comprada",
+"Data de peticao": "27/02/1702",
+"Localidade": "PalmaRS",
+"Marcos geográficos": ["Quaraguassú", "rio Iacoipe"],
+"Ribeira": null,
+"Confrotantes": null,
+"Area": 16,
+"Tipo de area": "léguas",
+"Largura": null,
+"Comprimento": null
+}

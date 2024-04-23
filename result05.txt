@@ -1,0 +1,22 @@
+Incidado o processo de leitura do pdf
+O tamanho do documento é: 6822
+Tempo de execução ollama: 1.286506175994873 segundos
+Incidado o processo de geração de tokens do pdf
+Tempo de execução ollama: 0.3136124610900879 segundos
+Incidado o procesamento do pdf pela llm
+Tempo de execução ollama: 365.20249104499817 segundos
+{
+"Categoria_da_sesmaria": "petição individual",
+"Sesmeiros": "Dom Manoel Rolim de Moura",
+"Capitania": "Alagoas",
+"Estado_atual": "Alagoas",
+"Historico_da_terra": "Comprada",
+"Data_de_peticao": "11 fevereiro 1723",
+"Localidade": "Olinda",
+"Marcos_geograficos": "Ribeira",
+"Confrotantes": "NA",
+"Area": null,
+"Tipo_de_area": "Léguas",
+"Largura": null,
+"Comprimento": null
+}

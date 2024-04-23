@@ -1,0 +1,16 @@
+{
+"Categoria_da_sesmaria": "petição individual",
+"Sesmeiros": "Christovão Mendonça",
+"Capitania": "Pernambuco",
+"Estado_atual": "Alagoas",
+"Historico_da_terra": "Comprada",
+"Data_de_peticao": "27/02/1702",
+"Localidade": "Caetano Palmares",
+"Marcos_geograficos": "Rio Quaraguassú acima",
+"Ribeira": "rio Iacoipe acima",
+"Confrotantes": "Senhor sargento-mor Christovão Mendonça",
+"Area": 16,
+"Tipo_de_area": "Léguas",
+"Largura": 20,
+"Comprimento": 30
+}

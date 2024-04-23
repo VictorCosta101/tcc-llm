@@ -1,61 +1,46 @@
-from ollama import Client
-import pdfplumber
-from transformers import AutoTokenizer
-from prompt_llm import generate_llm_prompt
-import spacy
-import time
+from llm import iniciar_llm
+import json
+from validador import validador
 
 pdf_path = "/home/victor/Documentos/tcc/peal0002.pdf"
 
-# Carregar modelo de linguagem Spacy em português
-try:
-    nlp = spacy.load("pt_core_news_sm")
-except OSError:
-    print("Modelo não encontrado. Baixando...")
-    spacy.cli.download("pt_core_news_sm")
-    nlp = spacy.load("pt_core_news_sm")
+#resposta = iniciar_llm("/home/victor/Documentos/tcc/PE-AL0013.pdf")
 
 
+gabarito_json = json.loads('''{
+"Categoria_da_sesmaria": "individual",
+"Sesmeiros": "Christovão de Mendonça",
+"Capitania": "Pernambuco",
+"Estado_atual": "Alagoas",
+"Historico_da_terra": "Comprada",
+"Data_de_peticao": "21/02/1702",
+"Localidade": "Palmares",
+"Marcos_geograficos": "Rio Jacuípe, Rio Quaraguassú, riacho João Mulato",
+"Ribeira": "NA",
+"Confrotantes": "NA",
+"Area": 16,
+"Tipo_de_area": "Léguas",
+"Largura": 4,
+"Comprimento": 4
+}''')
 
-def extract_text_with_whitespace(pdf_path):
-    text = ""
-    with pdfplumber.open(pdf_path) as file:
-        for page in file.pages:
-            text += page.extract_text()
-    return text
 
-def tokenize_text(text):
-    doc = nlp(text)
-    tokens = [token.text for token in doc if not token.is_stop and not token.is_punct]
-    return ' '.join(tokens)
+temperatura = 0.5
+delta = 0.05
+acertos_anterior = 0
 
+while True:
+    print(f'''Taxa de acerto anterior : {acertos_anterior} || temperatura : {temperatura}''')
+    resposta = iniciar_llm(pdf_path, temperatura)
+    resposta_json = json.loads(resposta)
+    acertos = validador(resposta_json, gabarito_json)
+    print(f"Taxa de acerto: {acertos}")
+    if acertos == 14:
+        break
+    if acertos > acertos_anterior: 
+        temperatura += delta
+        acertos_anterior = acertos
+    else:
+        break
 
-print("Incidado o processo de leitura do pdf")
-inicio_leitura_pdf = time.time()
-extracted_text = extract_text_with_whitespace(pdf_path)
-fim_leitura_pdf = time.time()
-print(f"Tempo de execução ollama: {fim_leitura_pdf - inicio_leitura_pdf} segundos")
-
-print("Incidado o processo de geração de tokens do pdf")
-inicio_token_pdf = time.time()
-tokenized_text = tokenize_text(extracted_text)
-fim_token_pdf = time.time()
-print(f"Tempo de execução ollama: {fim_token_pdf - inicio_token_pdf} segundos")
-
-print("Incidado o procesamento do pdf pela llm")
-# Create prompt
-q = generate_llm_prompt(tokenized_text)
-
-inicio = time.time()
-
-client = Client(host='http://localhost:11434')
-
-response = client.generate(
-    model='llama2', format='json', prompt=q
-)
-
-fim = time.time()
-
-print(f"Tempo de execução ollama: {fim - inicio} segundos")
-
-print(response['response'])
+print(f'''O melhor resultado com acertos {acertos_anterior} e temperatura {temperatura}''')
