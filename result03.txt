@@ -1,8 +1,0 @@
-Incidado o processo de leitura do pdf
-O tamanho do documento é: 6822
-Tempo de execução ollama: 1.281846523284912 segundos
-Incidado o processo de geração de tokens do pdf
-Tempo de execução ollama: 0.3074069023132324 segundos
-Incidado o procesamento do pdf pela llm
-Tempo de execução ollama: 39.57879328727722 segundos
-{"type": "answer", "answers": [{"text": "The sky appears blue because of a phenomenon called Rayleigh scattering. When sunlight enters Earth's atmosphere, it encounters tiny molecules of gases such as nitrogen and oxygen. These molecules scatter the light in all directions, but they scatter shorter (blue) wavelengths more than longer (red) wavelengths. This is known as Rayleigh scattering. As a result, the blue light is dispersed throughout the atmosphere, giving the sky its blue color."}], "question": "Por que o ceu é azul?"}

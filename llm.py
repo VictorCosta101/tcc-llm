@@ -31,7 +31,6 @@ def tokenize_text(text):
     return ' '.join(tokens)
 
 def iniciar_llm(pdf_path, temp):
-
     print("Incidado o processo de leitura do pdf")
     inicio_leitura_pdf = time.time()
     extracted_text = extract_text_with_whitespace(pdf_path)
@@ -51,15 +50,11 @@ def iniciar_llm(pdf_path, temp):
     q = generate_llm_prompt(tokenized_text)
     #print("prompt: "+ q)
     inicio = time.time()
-
-    client = Client(host='http://localhost:11434')
-
+    client = Client(host='https://d388-34-91-50-237.ngrok-free.app')
     response = client.generate(
-        model='llama2', format='json', prompt=q, stream=False, options={'temperature': temp})
-
+        model='llama3', format='json', prompt=q, stream=False, options={'temperature': temp})
     fim = time.time()
     tempo = fim - inicio
-
     print(response['response'])
     print(f"Tempo de execução ollama: {tempo} segundos || minutos : {tempo / 60} ")
     return response['response']

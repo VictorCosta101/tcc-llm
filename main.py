@@ -1,39 +1,23 @@
 from llm import iniciar_llm
 import json
 from validador import validador
+from gabaritos import gabarito_peal0002_json, gabarito_peal00013_json
 
-pdf_path = "/home/victor/Documentos/tcc/peal0002.pdf"
+documentos = [["/home/victor/Documentos/tcc/documentos/peal0002.pdf", gabarito_peal0002_json ], 
+               ["/home/victor/Documentos/tcc/documentos/peal0013.pdf", gabarito_peal00013_json ]]
 
-#resposta = iniciar_llm("/home/victor/Documentos/tcc/PE-AL0013.pdf")
-
-
-gabarito_json = json.loads('''{
-"Categoria_da_sesmaria": "individual",
-"Sesmeiros": "Christovão de Mendonça",
-"Capitania": "Pernambuco",
-"Estado_atual": "Alagoas",
-"Historico_da_terra": "Comprada",
-"Data_de_peticao": "21/02/1702",
-"Localidade": "Palmares",
-"Marcos_geograficos": "Rio Jacuípe, Rio Quaraguassú, riacho João Mulato",
-"Ribeira": "NA",
-"Confrotantes": "NA",
-"Area": 16,
-"Tipo_de_area": "Léguas",
-"Largura": 4,
-"Comprimento": 4
-}''')
-
-
-temperatura = 0.5
+temperatura = 0.0
 delta = 0.05
 acertos_anterior = 0
-
+contador = 0 
 while True:
     print(f'''Taxa de acerto anterior : {acertos_anterior} || temperatura : {temperatura}''')
-    resposta = iniciar_llm(pdf_path, temperatura)
+
+    print( f'''Teste {documentos[contador][1]['Categoria_da_sesmaria']}''')
+    
+    resposta = iniciar_llm(documentos[contador][0], temperatura)
     resposta_json = json.loads(resposta)
-    acertos = validador(resposta_json, gabarito_json)
+    acertos = validador(resposta_json, documentos[contador][1])
     print(f"Taxa de acerto: {acertos}")
     if acertos == 14:
         break
@@ -41,6 +25,10 @@ while True:
         temperatura += delta
         acertos_anterior = acertos
     else:
-        break
+        contador +=1
+        if contador == len(documentos):
+            break
+        print(f'''Indo para novo documento {documentos[contador][0]}''')
+        
 
 print(f'''O melhor resultado com acertos {acertos_anterior} e temperatura {temperatura}''')
